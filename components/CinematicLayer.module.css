@@ -1,0 +1,8 @@
+.canvasOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.92;
+  mix-blend-mode: screen;
+}

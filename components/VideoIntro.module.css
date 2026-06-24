@@ -1,0 +1,300 @@
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, rgba(40, 32, 60, 0.3), transparent 30%),
+    radial-gradient(circle at 20% 20%, rgba(255, 190, 100, 0.14), transparent 30%),
+    #050507;
+}
+
+.videoFrame {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.backgroundLayer,
+.videoLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.backgroundLayer {
+  filter: blur(24px);
+  transform: scale(1.05);
+  opacity: 0.48;
+}
+
+.blurVideo,
+.mainVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ambientGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 12, 22, 0.35), rgba(2, 2, 6, 0.76));
+}
+
+.videoLayer {
+  z-index: 1;
+}
+
+.darkOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 4, 6, 0.55), transparent 45%),
+    radial-gradient(circle at 30% 15%, rgba(0, 0, 0, 0.55), transparent 24%),
+    rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.warmLightOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 25%, rgba(255, 148, 72, 0.18), transparent 16%),
+    radial-gradient(circle at 18% 70%, rgba(106, 141, 255, 0.12), transparent 14%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.contentWrap {
+  position: relative;
+  z-index: 4;
+  width: min(1120px, calc(100% - 3rem));
+  display: grid;
+  gap: 2.8rem;
+  align-items: flex-end;
+  padding: 4rem 0 5rem;
+  min-height: 100vh;
+}
+
+.contentMeta {
+  max-width: 760px;
+  display: grid;
+  gap: 1.8rem;
+}
+
+.contentMeta span,
+.contentMeta h1,
+.contentMeta p {
+  color: #f7f6f5;
+}
+
+.contentMeta span {
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.76;
+  font-weight: 600;
+}
+
+.contentMeta h1 {
+  font-size: clamp(4.2rem, 12vw, 8.5rem);
+  line-height: 0.88;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.contentMeta h1 span {
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  opacity: 1;
+}
+
+.contentMeta p {
+  max-width: 630px;
+  font-size: clamp(1.04rem, 1.2vw, 1.28rem);
+  line-height: 1.88;
+  color: #d8d8dc;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+}
+
+.controlsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.glassButton {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(12, 15, 25, 0.42);
+  color: #f6f5f3;
+  min-width: 130px;
+  padding: 1rem 1.4rem;
+  border-radius: 999px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+  font-size: 0.98rem;
+}
+
+.glassButton:hover {
+  transform: translateY(-1px);
+  background: rgba(18, 22, 34, 0.65);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.badgeWrap {
+  position: relative;
+}
+
+.soundBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffbf68;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 190, 100, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  animation: floatBadge 3.8s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.96;
+  }
+  50% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+.scrollCue {
+  margin-top: 0.8rem;
+  border: none;
+  background: transparent;
+  color: #dcdce0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  opacity: 0.88;
+}
+
+.scrollCue:hover {
+  opacity: 1;
+}
+
+.scrollLabel {
+  font-size: 0.82rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.scrollLine {
+  width: 2px;
+  height: 56px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 190, 100, 0.9), rgba(255, 255, 255, 0.1));
+  position: relative;
+}
+
+.scrollLine::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(255, 190, 100, 0.8);
+  animation: pulseDot 2.2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: translate(-50%, 0) scale(0.95);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-50%, 8px) scale(1.2);
+    opacity: 0.55;
+  }
+}
+
+.skipButton {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 0;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #d8d8dc;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.skipButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 880px) {
+  .contentWrap {
+    gap: 2rem;
+    padding: 3rem 0 3rem;
+  }
+
+  .contentMeta h1 {
+    font-size: clamp(3.4rem, 12vw, 5.8rem);
+  }
+
+  .glassButton {
+    min-width: 120px;
+    padding: 0.92rem 1.2rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .heroSection {
+    background: #050507;
+  }
+
+  .contentWrap {
+    padding: 2.5rem 0 2.5rem;
+  }
+
+  .contentMeta h1 {
+    font-size: clamp(3rem, 14vw, 4.8rem);
+  }
+
+  .controlsRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .glassButton {
+    width: 100%;
+  }
+}

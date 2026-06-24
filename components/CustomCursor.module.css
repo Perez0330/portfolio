@@ -1,0 +1,30 @@
+.cursorDot,
+.cursorOutline {
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursorDot {
+  width: 6px;
+  height: 6px;
+  background-color: #ffbf68;
+}
+
+.cursorOutline {
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  transition: border-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .cursorDot,
+  .cursorOutline {
+    display: none;
+  }
+}
