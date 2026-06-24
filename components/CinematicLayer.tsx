@@ -52,7 +52,7 @@ export default function CinematicLayer({ videoRef }: CinematicLayerProps) {
     // Lower pixel ratio on mobile for performance
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.setClearColor(0x000000, 0);
     rendererRef.current = renderer;
 

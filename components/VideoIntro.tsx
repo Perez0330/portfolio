@@ -9,7 +9,8 @@ import { useVideoStore } from '../app/videoStore';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const VIDEO_SRC = '/Use_the_uploaded_image_as_the.mp4';
+const VIDEO_BASE_NAME = '/optimized-video'; // Use a descriptive name
+const POSTER_IMAGE = '/video-poster.jpg'; // A static image placeholder
 
 export default function VideoIntro() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -162,13 +163,15 @@ export default function VideoIntro() {
           <div className={styles.backgroundLayer} aria-hidden="true">
             <video
               className={styles.blurVideo}
-              src={VIDEO_SRC}
               autoPlay
               loop
               muted
               playsInline
-              preload="auto"
-            />
+            preload="metadata"
+          >
+            <source src={`${VIDEO_BASE_NAME}.webm`} type="video/webm" />
+            <source src={`${VIDEO_BASE_NAME}.mp4`} type="video/mp4" />
+          </video>
             <div className={styles.ambientGradient} />
           </div>
 
@@ -176,14 +179,17 @@ export default function VideoIntro() {
             <video // The `isMuted` prop is now controlled by the Zustand store
               ref={videoRef}
               className={styles.mainVideo}
-              src={VIDEO_SRC}
               autoPlay
               loop
               muted={isMuted}
               playsInline
-              preload="auto"
+            preload="metadata"
               onCanPlay={handleVideoReady} // Trigger when video is ready
-            />
+            poster={POSTER_IMAGE}
+          >
+            <source src={`${VIDEO_BASE_NAME}.webm`} type="video/webm" />
+            <source src={`${VIDEO_BASE_NAME}.mp4`} type="video/mp4" />
+          </video>
             <div className={styles.darkOverlay} />
             <div className={styles.warmLightOverlay} />
           </div>
