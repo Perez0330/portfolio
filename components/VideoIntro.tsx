@@ -19,7 +19,7 @@ export default function VideoIntro() {
   useEffect(() => {
     const video = videoRef.current;
     const container = containerRef.current;
-    if (!video || isLoading) return;
+    if (!video) return;
 
     video.muted = true;
     video.loop = true;
@@ -99,7 +99,7 @@ export default function VideoIntro() {
       zoomTl.kill();
       ScrollTrigger.killAll();
     };
-  }, [isLoading, actions]);
+  }, [actions]);
 
   const togglePlay = async () => {
     const video = videoRef.current;
